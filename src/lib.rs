@@ -44,7 +44,7 @@ pub fn sha1_hash_file(file_buffer: &Vec<u8>) -> [u8; 20] {
 
 /// Get vanilla resource path hashes https://www.cyberpunk.net/en/modding-support
 pub fn get_red4_hashes() -> HashMap<u64, String> {
-    let csv_data = include_bytes!("metadata-resources.csv");
+    let csv_data = include_bytes!(concat!(env!("OUT_DIR"), "/metadata-resources.csv"));
     let mut map: HashMap<u64, String> = HashMap::new();
 
     let reader = BufReader::new(&csv_data[..]);
